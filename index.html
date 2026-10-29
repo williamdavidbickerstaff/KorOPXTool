@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>KORYON Image Effect Studio</title>
+    <link rel="icon" href="data:," />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/mp4-muxer.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <aside id="panel">
+        <header class="panel-head">
+          <h1>KORYON Image Effect Studio</h1>
+        </header>
+
+        <div id="top-controls"></div>
+
+        <section class="source-card">
+          <div class="source-label">Source</div>
+          <div id="source-name">No source</div>
+          <div class="row">
+            <button type="button" class="btn primary" id="upload-btn">
+              Upload image / video
+            </button>
+            <button type="button" class="btn" id="webcam-btn">Webcam</button>
+            <button type="button" class="btn" id="play-btn" hidden>
+              Pause
+            </button>
+          </div>
+        </section>
+
+        <div id="controls"></div>
+      </aside>
+
+      <main id="main">
+        <div id="toolbar">
+          <button type="button" class="btn" id="reveal-btn">
+            Reveal <kbd>Space</kbd>
+          </button>
+          <button type="button" class="btn record" id="record-btn">
+            ● Record <kbd>R</kbd>
+          </button>
+          <span id="rec-time"></span>
+          <button type="button" class="btn" id="snapshot-btn">
+            Snapshot <kbd>P</kbd>
+          </button>
+          <span class="spacer"></span>
+          <span id="canvas-info"></span>
+          <button type="button" class="btn" id="panel-btn">
+            Hide panel <kbd>H</kbd>
+          </button>
+        </div>
+
+        <div id="stage">
+          <div id="empty" hidden>
+            <div class="empty-card">
+              <p>Drop an image or video here</p>
+              <div class="row">
+                <button type="button" class="btn primary" id="empty-upload-btn">
+                  Upload
+                </button>
+                <button type="button" class="btn" id="empty-webcam-btn">
+                  Use webcam
+                </button>
+              </div>
+            </div>
+          </div>
+          <div id="drop-overlay">Drop to use this file</div>
+        </div>
+
+        <div id="hint">Move across the canvas to glitch it</div>
+        <div id="toast" role="status"></div>
+      </main>
+    </div>
+
+    <input type="file" id="media-input" accept="image/*,video/*" hidden />
+    <input type="file" id="tile-input" accept="image/*" hidden />
+    <input
+      type="file"
+      id="preset-input"
+      accept="application/json,.json"
+      hidden
+    />
+    <div id="video-holder" aria-hidden="true"></div>
+
+    <script src="settings.js"></script>
+    <script src="sketch.js"></script>
+    <script src="webgl.js"></script>
+    <script src="lines.js"></script>
+    <script src="outline.js"></script>
+    <script src="mp4.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>
